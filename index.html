@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Last Card | Final Trial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fafafa;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .font-serif { font-family: 'Crimson Pro', serif; }
+
+        /* VFX: Screen Shake */
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            10%, 30%, 50%, 70%, 90% { transform: translate(-4px, 0); }
+            20%, 40%, 60%, 80% { transform: translate(4px, 0); }
+        }
+        .vfx-shake { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+
+        /* VFX: Float */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .vfx-float { animation: float 3s ease-in-out infinite; }
+
+        /* VFX: Flash Red */
+        @keyframes flashRed {
+            0% { background-color: rgba(239, 68, 68, 0); }
+            50% { background-color: rgba(239, 68, 68, 0.3); }
+            100% { background-color: rgba(239, 68, 68, 0); }
+        }
+        .vfx-flash-red { animation: flashRed 0.4s ease-out; }
+
+        /* VFX: Card Glow */
+        .vfx-glow-bound {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+            animation: glowPulse 2s infinite alternate;
+        }
+        @keyframes glowPulse {
+            from { box-shadow: 0 0 10px rgba(249, 115, 22, 0.2); }
+            to { box-shadow: 0 0 30px rgba(249, 115, 22, 0.6); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        #root { height: 100vh; width: 100vw; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
